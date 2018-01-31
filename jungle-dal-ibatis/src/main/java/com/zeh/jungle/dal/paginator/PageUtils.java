@@ -1,10 +1,10 @@
-package com.zeh.jungle.utils.page.dal;
-
-import com.zeh.jungle.utils.page.PageInfo;
-import com.zeh.jungle.utils.page.PageResult;
+package com.zeh.jungle.dal.paginator;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import com.zeh.jungle.utils.page.PageInfo;
+import com.zeh.jungle.utils.page.PageResult;
 
 /**
  * 创建{@link PageList}实例工具

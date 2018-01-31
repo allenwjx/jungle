@@ -1,10 +1,11 @@
-package com.zeh.jungle.utils.page.dal;
+package com.zeh.jungle.dal.paginator;
 
 import java.util.List;
 import java.util.Map;
 
-import com.zeh.jungle.utils.common.BeanMapper;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
+
+import com.zeh.jungle.utils.common.BeanMapper;
 
 /**
  * ibatis分页查询工具类

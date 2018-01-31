@@ -6,7 +6,7 @@ import org.springframework.aop.framework.AdvisedSupport;
 import org.springframework.aop.support.AopUtils;
 
 /**
- * @author wjx20000
+ * @author allen
  * @version $Id: AopTargetUtils.java, v 0.1 2017年1月17日 下午8:24:02 allen Exp $
  */
 public class AopTargetUtils {

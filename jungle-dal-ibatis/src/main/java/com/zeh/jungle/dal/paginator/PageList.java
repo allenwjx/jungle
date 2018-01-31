@@ -1,4 +1,4 @@
-package com.zeh.jungle.utils.page.dal;
+package com.zeh.jungle.dal.paginator;
 
 import java.io.Serializable;
 import java.util.Collection;

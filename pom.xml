@@ -15,12 +15,15 @@
         <module>jungle-dal-ibatis</module>
         <module>jungle-core</module>
         <module>jungle-bom</module>
+        <module>jungle-client</module>
+        <module>jungle-mq</module>
     </modules>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
         <rocketmq.version>4.2.0</rocketmq.version>
+        <dubbo.version>2.6.0</dubbo.version>
         <spring.version>3.2.9.RELEASE</spring.version>
         <spring.security.version>3.2.9.RELEASE</spring.security.version>
         <javax.annotation.version>1.2</javax.annotation.version>
@@ -44,9 +47,7 @@
         <velocity.version>1.7</velocity.version>
         <httpclient.version>4.5.1</httpclient.version>
         <dozer.version>5.5.1</dozer.version>
-
         <mysql.version>5.1.38</mysql.version>
-
         <slf4j.version>1.6.2</slf4j.version>
         <log4j.version>1.2.16</log4j.version>
         <junit.version>4.10</junit.version>
@@ -58,6 +59,36 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-dal-ibatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-mq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-client</artifactId>

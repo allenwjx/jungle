@@ -10,7 +10,7 @@ import com.alibaba.fastjson.parser.deserializer.DateFormatDeserializer;
 
 /**
  * 日期反序列化处理器
- * @author Smile
+ * @author allen
  * @version $Id: JGDateFormatDeserializer.java, v 0.1 2016年6月15日 下午3:17:37 Smile Exp $
  */
 public class JGDateFormatDeserializer extends DateFormatDeserializer {

@@ -4,18 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.zeh.jungle</groupId>
         <artifactId>jungle</artifactId>
+        <groupId>com.zeh.jungle</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jungle-core</artifactId>
-    <name>Jungle Core Module</name>
+    <artifactId>jungle-client</artifactId>
+    <name>Jungle Client Module</name>
 
     <dependencies>
         <dependency>
             <groupId>com.zeh.jungle</groupId>
-            <artifactId>jungle-utils</artifactId>
+            <artifactId>jungle-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
         </dependency>
     </dependencies>
 </project>

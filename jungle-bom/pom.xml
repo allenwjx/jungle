@@ -26,6 +26,14 @@
             <groupId>com.zeh.jungle</groupId>
             <artifactId>jungle-utils</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-mq</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -43,6 +51,16 @@
             <dependency>
                 <groupId>com.zeh.jungle</groupId>
                 <artifactId>jungle-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-mq</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
