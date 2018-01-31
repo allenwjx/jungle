@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}-parent</artifactId>
+        <version>${version}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>${rootArtifactId}-assembly</artifactId>
+    <packaging>pom</packaging>
+
+    <name>${rootArtifactId}-Assembly</name>
+    <description>${rootArtifactId} Assembly</description>
+
+    <properties>
+        <assembly.name>${rootArtifactId}</assembly.name>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <property>
+                    <name>jungle-env</name>
+                    <value>dev</value>
+                </property>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../conf/filter/dubbo.properties.dev</filter>
+                    <filter>../conf/filter/log4j.properties.dev</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>test</id>
+            <activation>
+                <property>
+                    <name>jungle-env</name>
+                    <value>test</value>
+                </property>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../conf/filter/dubbo.properties.test</filter>
+                    <filter>../conf/filter/log4j.properties.test</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>predeploy</id>
+            <activation>
+                <property>
+                    <name>jungle-env</name>
+                    <value>predeploy</value>
+                </property>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../conf/filter/dubbo.properties.predeploy</filter>
+                    <filter>../conf/filter/log4j.properties.predeploy</filter>
+                </filters>
+            </build>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <property>
+                    <name>jungle-env</name>
+                    <value>prod</value>
+                </property>
+            </activation>
+            <build>
+                <filters>
+                    <filter>../conf/filter/dubbo.properties.prod</filter>
+                    <filter>../conf/filter/log4j.properties.prod</filter>
+                </filters>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>../conf</directory>
+                <targetPath>${basedir}/../target/${assembly.name}.jungle</targetPath>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/filter/**</exclude>
+                </excludes>
+            </resource>
+
+            <resource>
+                <directory>../conf/config</directory>
+                <targetPath>${basedir}/../target/${assembly.name}.jungle/config</targetPath>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.conf</include>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+
+            #if($project_type=="web")
+            <resource>
+                <directory>../webdocs</directory>
+                <targetPath>${basedir}/../target/${assembly.name}.jungle/webdocs</targetPath>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>**/pom.xml</exclude>
+                </excludes>
+            </resource>
+            #end
+        </resources>
+
+        <filters>
+            <filter>../conf/filter/dubbo.properties.default</filter>
+            <filter>../conf/filter/log4j.properties.default</filter>
+        </filters>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-conf</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>resources</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>distribution-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>../target</outputDirectory>
+                            <attach>false</attach>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <finalName>${assembly.name}</finalName>
+                            <descriptors>
+                                <descriptor>assembly.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

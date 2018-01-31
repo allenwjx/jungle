@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.zeh.jungle.dalgen</groupId>
+	<artifactId>generator</artifactId>
+	<packaging>pom</packaging>
+
+	<name>DALGEN Generator Parent POM</name>
+	<version>1.0</version>
+
+	<properties>
+		<h2.version>1.2.135</h2.version>
+		<slf4j.version>1.6.0</slf4j.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<!-- 生成器模板 -->
+		<dependency>
+			<groupId>com.googlecode.rapid-framework</groupId>
+			<artifactId>rapid-core</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.rapid-framework</groupId>
+			<artifactId>rapid-generator-template</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zeh.jungle</groupId>
+			<artifactId>jungle-dal-ibatis</artifactId>
+			<version>${jungle_core_version}</version>
+		</dependency>
+
+		<!-- generator-engine -->
+		<dependency>
+			<groupId>com.googlecode.rapid-framework</groupId>
+			<artifactId>rapid-generator</artifactId>
+			<version>4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.rapid-framework</groupId>
+			<artifactId>rapid-generator-ext</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<!-- apache-commons BEGIN -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.3</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- apache-commons END -->
+
+		<!-- logging BEGIN -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+		</dependency>
+		<!-- logging end -->
+
+		<!-- template engine -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.16</version>
+		</dependency>
+
+		<!-- jdbc drivers begin -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+		<!-- jdbc drivers end -->
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.groovy.maven</groupId>
+				<artifactId>gmaven-plugin</artifactId>
+				<version>1.0</version>
+				<configuration>
+					<source>${pom.basedir}/gen.groovy</source>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<echo>
+									settings.localRepository=${settings.localRepository}
+								</echo>
+								<ant antfile="build.xml" target="${antTarget}" inheritall="true" inheritrefs="true">
+									<property name="maven.compile.classpath" refid="maven.compile.classpath" />
+									<property name="genInputCmd" value="${genInputCmd}" />
+									<property name="mvn_localRepository" value="${settings.localRepository}" />
+								</ant>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

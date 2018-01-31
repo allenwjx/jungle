@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<comment>
+		代码生成器配置文件:
+		1.会为所有的property生成property_dir属性,如pkg=com.company => pkg_dir=com/company
+	</comment>
+
+	<!-- 自动生成DO、DAO及实现类的包限定名，会覆盖原有的类！！ -->
+	<entry key="dal_package">${groupId}.${rootArtifactId}.dal</entry>
+	<entry key="appName">${rootArtifactId}</entry>
+
+	<!-- 模块，用于dal层sqlmap及spring配置文件的划分 -->
+	<entry key="appModule">${rootArtifactId}</entry>
+
+	<!-- 需要移除的表名前缀,使用逗号进行分隔多个前缀,示例值: t_,v_ -->
+	<entry key="tableRemovePrefixes"></entry>
+
+	<!-- 数据库类型至java类型映射 -->
+	<entry key="java_typemapping.java.sql.Timestamp">java.util.Date</entry>
+	<entry key="java_typemapping.java.sql.Date">java.util.Date</entry>
+	<entry key="java_typemapping.java.sql.Time">java.util.Date</entry>
+	<entry key="java_typemapping.java.lang.Byte">int</entry>
+	<entry key="java_typemapping.java.lang.Short">int</entry>
+	<entry key="java_typemapping.java.lang.Integer">int</entry>
+	<entry key="java_typemapping.java.lang.Long">long</entry>
+	<entry key="java_typemapping.java.math.BigDecimal">double</entry>
+	<entry key="java_typemapping.java.sql.Clob">String</entry>
+
+	<!-- 用于存放sequence列表，生成SeqDAO使用,使用空格，换行符分隔，示例值: seq_user seq_blog -->
+	<entry key="sequencesList">
+	</entry>
+
+	<!-- dalgen的table配置文件目录,不需要一个个列举出来,只要是这个目录下面的xml文件就可以全部扫描出来 -->
+	<entry key="dir_table_configs">tables</entry>
+
+	<!-- dal层模板的输出目录 -->
+	<entry key="dir_dal_output_root">../../app/dal</entry>
+
+	<!-- 模板根目录,可以为: 1. c:/some.jar!/subfolder 2. classpath:some_folder -->
+	<entry key="dir_templates_root">classpath:generator/template/jungle</entry>
+
+
+	<!-- 数据库相关配置 -->
+	<entry key="jdbc_username">root</entry>
+	<entry key="jdbc_password">root</entry>
+
+	<!-- 切换不同的数据库驱动，可以影响如分页语句的生成. 因为生成器会根据jdbc_driver自动生成一个databaseType=mysql,oracle,postgresql变量 -->
+	<!-- Mysql -->
+	<entry key="jdbc_url">jdbc:mysql://127.0.0.1:3306/allen?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false</entry>
+	<entry key="jdbc_driver">com.mysql.jdbc.Driver</entry>
+
+	<entry key="deployModule"></entry>
+
+	<!-- oracle使用oci的连接方式需要设置PATH环境变量及ORACLE_HOME环境变量 -->
+	<!-- Oracle jdbc:oracle:oci:@devdb01 
+	<entry key="jdbc_url">jdbc:oracle:thin:@192.168.0.177:1521:[sid]</entry> 
+	<entry key="jdbc_driver">oracle.jdbc.driver.OracleDriver</entry> 
+	-->
+	<!-- oracle需要指定jdbc_schema,并且要大写，其它数据库忽略此项配置 
+	<entry key="jdbc_schema"></entry> 
+	<entry key="jdbc_catalog"></entry> 
+	-->
+</properties>

@@ -1,0 +1,88 @@
+<div class="page-sidebar-wrapper">
+	<div class="page-sidebar navbar-collapse collapse">
+		<ul class="page-sidebar-menu page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+			<li class="start active open">
+				<a href="javascript:;">
+					<i class="icon-diamond"></i>
+					<span class="title">规则管理</span>
+					<span class="selected"></span>
+					<span class="arrow open"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="active">
+						<a href="index.html"><i class="fa fa-superscript"></i>条件开发</a>
+					</li>
+					<li>
+						<a href="ecommerce_index.html"><i class="fa fa-subscript"></i>比较符开发</a>
+					</li>
+					<li>
+						<a href="ecommerce_index.html"><i class="fa fa-database"></i>数据源开发</a>
+					</li>
+					<li>
+						<a href="ecommerce_index.html"><i class="fa fa-gavel"></i>规则策略</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<i class="icon-drawer"></i>
+					<span class="title">动作管理</span>
+					<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li>
+						<a href="ecommerce_index.html"><i class="fa fa-database"></i>属性数据源</a>
+					</li>
+					<li>
+						<a href="ecommerce_index.html"><i class="fa fa-flash"></i>本地动作</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">
+				<i class="icon-rocket"></i>
+				<span class="title">决策管理</span>
+				<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li>
+						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-cube"></i>策略节点</a>
+					</li>
+					<li>
+						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-life-bouy"></i>策略配置</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">
+				<i class="icon-settings"></i>
+				<span class="title">基础管理</span>
+				<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li>
+						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-laptop"></i>应用配置</a>
+					</li>
+					<li>
+						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-th-large"></i>场景配置</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="javascript:;">
+				<i class="icon-speedometer"></i>
+				<span class="title">统计监控</span>
+				<span class="arrow "></span>
+				</a>
+				<ul class="sub-menu">
+					<li>
+						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-codepen"></i>规则运行统计</a>
+					</li>
+					<li>
+						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-bar-chart-o"></i>策略运行统计</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>

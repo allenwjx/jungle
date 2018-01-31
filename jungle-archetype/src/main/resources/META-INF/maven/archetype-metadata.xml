@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<archetype-descriptor name="app-parent">
+	<requiredProperties>
+		<requiredProperty key="jungle_core_version">
+			<defaultValue>2.0.5.5</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="core_lib_version">
+			<defaultValue>2.0.5.5</defaultValue>
+		</requiredProperty>
+		<requiredProperty key="project_type" hint="choose 'web' or 'core'">
+			<validationRegex>^web$|^core$</validationRegex>
+		</requiredProperty>
+		<requiredProperty key="__output_encoding" hint="choose 'UTF-8'">
+			<defaultValue>UTF-8</defaultValue>
+		</requiredProperty>
+	</requiredProperties>
+	<fileSets>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>conf/config</directory>
+			<includes>
+				<include>**/*.vm</include>
+				<include>**/*.xml</include>
+				<include>**/*.properties</include>
+				<include>**/*.MF</include>
+				<include>**/java_opts</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>conf/META-INF</directory>
+			<includes>
+				<include>**/*.vm</include>
+				<include>**/*.xml</include>
+				<include>**/*.properties</include>
+				<include>**/*.MF</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>conf/filter</directory>
+			<includes>
+				<include>**/*.properties.*</include>
+				<include>**/*.xml.*</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>dalgen</directory>
+			<includes>
+				<include>pom.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>dalgen/db</directory>
+			<includes>
+				<include>**/*.vm</include>
+				<include>**/*.xml</include>
+				<include>**/*.properties</include>
+				<include>**/*.bat</include>
+				<include>**/*.sh</include>
+				<include>**/*.groovy</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>dalgen/db/tables</directory>
+			<includes>
+				<include>**/*.xml</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="true" encoding="UTF-8">
+			<directory>deploy</directory>
+			<includes>
+				<include>**/*.sh</include>
+				<include>**/*.bat</include>
+			</includes>
+		</fileSet>
+		<fileSet filtered="false" encoding="UTF-8" condition="project_type=web">
+			<directory>webdocs/static</directory>
+			<includes>
+				<include>**/*</include>
+			</includes>
+		</fileSet>
+	</fileSets>
+
+	<modules>
+		<module id="web" dir="app/web" name="web" condition="project_type=web">
+			<fileSets>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.properties</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/webapp</directory>
+					<includes>
+						<include>**/*.xml</include>
+						<include>**/*.properties</include>
+						<include>**/*.vm</include>
+						<include>**/*.md</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+		<module id="biz" dir="app/biz" name="biz">
+			<fileSets>
+				<fileSet packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="facade" dir="app/facade" name="facade">
+			<fileSets>
+				<fileSet packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="facade-impl" dir="app/facade-impl" name="facade-impl">
+			<fileSets>
+				<fileSet packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="integration" dir="app/integration" name="integration">
+			<fileSets>
+				<fileSet packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="test" dir="app/test" name="test">
+			<fileSets>
+				<fileSet packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.properties</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" packaged="true" encoding="UTF-8">
+					<directory>src/test/java</directory>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/test/resources</directory>
+					<includes>
+						<include>**/*.properties</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="dal" dir="app/dal" name="dal">
+			<fileSets>
+				<fileSet packaged="true" encoding="UTF-8">
+					<directory>src/main/java</directory>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.xml</include>
+					</includes>
+				</fileSet>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>src/main/resources</directory>
+					<includes>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="assembly" dir="assembly" name="assembly">
+			<fileSets>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>/</directory>
+					<includes>
+						<include>**/*.vm</include>
+						<include>**/*.xml</include>
+						<include>**/*.properties</include>
+						<include>**/*.MF</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+
+		<module id="webdocs" dir="webdocs" name="webdocs" condition="project_type=web">
+			<fileSets>
+				<fileSet filtered="true" encoding="UTF-8">
+					<directory>/WEB-INF</directory>
+					<includes>
+						<include>**/*</include>
+					</includes>
+				</fileSet>
+			</fileSets>
+		</module>
+	</modules>
+</archetype-descriptor>

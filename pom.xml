@@ -17,6 +17,7 @@
 		<module>jungle-client</module>
 		<module>jungle-mq</module>
 		<module>jungle-fsm</module>
+		<module>jungle-archetype</module>
 	</modules>
 
 	<properties>

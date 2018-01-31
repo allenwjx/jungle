@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/jstree/dist/themes/default/style.min.css"/>
+
+<div id="J_uitree" class="col-md-3 col-sm-3 col-xs-6 page-tree-content"></div>
+
+<script src="${rc.contextPath}/js/plugins/jstree/dist/jstree.min.js"></script>
+<script src="${rc.contextPath}/js/ui-tree/ui-tree.js"></script>
+
+<script type="text/javascript">
+
+jQuery(document).ready(function() {
+	var data = [{
+                "text": "SOF",
+                "type": "domain",
+                "children": [{
+                    "text": "Java",
+                    "type": "file",
+                    "state": {
+                        "selected": true
+                    }
+                }, {
+                    "text": "NodeJS",
+                    "type": "file"
+                }, {
+                    "text": "C#",
+                    "type": "file"
+                }, {
+                    "text": "Ruby",
+                    "type": "file"
+                }, {
+                    "text": "Python",
+                    "type": "file"
+                },{
+                    "text": "GoLang",
+                    "type": "file"
+                },{
+                    "text": "SOFMVC",
+                    "children": [
+                        {"text": "Vue", "type": "file"},
+                        {"text": "Ant Design", "type": "file"},
+                        {"text": "React", "type": "file"},
+                        {"text": "React Native", "type": "file"}
+                    ]
+                }]
+            }
+        ];
+	UITree.init('J_uitree', data);
+
+});
+</script>

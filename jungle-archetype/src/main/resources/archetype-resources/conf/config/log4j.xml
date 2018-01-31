@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="STDOUT-APPENDER" class="org.apache.log4j.ConsoleAppender">
+        <param name="encoding" value="${__output_encoding}"/>
+        <param name="target" value="System.out"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+    <appender name="STDERR-APPENDER" class="org.apache.log4j.ConsoleAppender">
+        <param name="encoding" value="${__output_encoding}"/>
+        <param name="target" value="System.err"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+    <appender name="ERROR-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${log.root}/logs/common-error.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="${__output_encoding}"/>
+        <param name="threshold" value="error"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+    <appender name="DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${log.root}/logs/common-default.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="${__output_encoding}"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+    <appender name="APP-DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${log.root}/logs/${rootArtifactId}.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="${__output_encoding}"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+    <appender name="JUNGLE-DEFAULT-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="file" value="${log.root}/logs/jungle-default.log"/>
+        <param name="append" value="true"/>
+        <param name="encoding" value="${__output_encoding}"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+    <appender name="JVM-MONITOR-DIGEST-APPENDER" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="${log.root}/logs/jvm-monitor-digest.log"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                   value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%X{LOGGER_MODULE}][%X{LOGGER_CATEGORY}][%X{LOGGER_SUBCATEGORY}][%X{LOGGER_FILTER2}][%X{LOGGER_FILTER1}]%m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="STDOUT" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="STDOUT-APPENDER"/>
+    </logger>
+    <logger name="STDERR" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="STDERR-APPENDER"/>
+    </logger>
+    <logger name="com.zeh.jungle" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="JUNGLE-DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="org.springframework" additivity="true">
+        <level value="WARN"/>
+        <appender-ref ref="JUNGLE-DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="java.sql" additivity="false">
+        <level value="ERROR"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="com.ibatis" additivity="true">
+        <level value="WARN"/>
+        <appender-ref ref="JUNGLE-DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="JVM-MONITOR-DIGEST-LOGGER" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="JVM-MONITOR-DIGEST-APPENDER"/>
+    </logger>
+    <logger name="${package}" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="APP-DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <logger name="RocketmqClient" additivity="true">
+        <level value="ERROR"/>
+        <appender-ref ref="JUNGLE-DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </logger>
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="DEFAULT-APPENDER"/>
+        <appender-ref ref="ERROR-APPENDER"/>
+    </root>
+</log4j:configuration>
+

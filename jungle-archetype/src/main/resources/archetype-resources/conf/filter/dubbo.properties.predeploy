@@ -1,0 +1,12 @@
+#应用信息
+jungle.version=${jungle_core_version}
+app.name=${rootArtifactId}
+app.version=${version}
+app.type=${project_type}
+app.root=${user.home}/${app.name}
+jungle-env=predeploy
+
+#database
+
+#RocketMQ配置，项目没有mq，可以删除
+mq.namesrv.addr=10.100.159.200:9876;10.100.157.34:9876

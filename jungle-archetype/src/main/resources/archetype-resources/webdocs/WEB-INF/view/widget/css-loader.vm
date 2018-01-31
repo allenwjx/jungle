@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/simple-line-icons/simple-line-icons.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-switch/css/bootstrap-switch.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-toastr/toastr.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/uniform/css/uniform.default.css">
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/select2/select2.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/select2/css/select2-bootstrap.min.css"></link>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/icheck/skins/minimal/orange.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/pace/themes/pace-theme-flash.css"/>
+<link rel="stylesheet" href="${rc.contextPath}/css/sweetalert.css">
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/error.css" />
+
+<!-- custom style -->
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/components.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/plugins.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/layout.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/themes/light.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/custom.css"/>

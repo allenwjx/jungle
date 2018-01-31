@@ -1,0 +1,33 @@
+#macro(paginator $result $id)
+    #if(${result.paginator.totalPage} > 0)
+    <ul class="pagination pull-right no-margin">
+        #if(${result.paginator.currentPage} == 1)
+            <li class="disabled"><a><i class="fa fa-angle-double-left"></i></a></li>
+        #else
+            <li><a class="active paginator${id}" data-value="${result.paginator.priviousPage}"><i class="fa fa-angle-double-left"></i></a></li>
+        #end
+        #foreach($p in [1 ..${result.paginator.totalPage}])
+            #if($p==${result.paginator.currentPage})
+                <li class="disabled"><a>$p</a></li>
+            #else
+                <li><a class="active paginator${id}" data-value="$p">$p</a></li>
+            #end
+        #end
+        #if(${result.paginator.currentPage} == ${result.paginator.totalPage})
+            <li><a class="disabled"><i class="fa fa-angle-double-right"></i></a></li>
+        #else
+            <li><a class="active paginator${id}" data-value="${result.paginator.nextPage}"><i class="fa fa-angle-double-right"></i> </a></li>
+        #end
+    </ul>
+    <script type="text/javascript">
+        $(".paginator${id}").click(function(){
+            var page = $(this).attr("data-value");
+            var url = $('#${id}').attr('action');
+            url = url + "&page="+page;
+            $('#${id}').attr("action", url);
+            $('#${id}').submit();
+        });
+    </script>
+    #else
+    #end
+#end

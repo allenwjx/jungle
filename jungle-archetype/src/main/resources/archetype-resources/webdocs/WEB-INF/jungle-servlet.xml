@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:security="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc  
+    	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+    	http://www.springframework.org/schema/security 
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <context:annotation-config/>
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="${groupId}.web.controller" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
+
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+        <property name="defaultLocale" value="zh_CN"/>
+    </bean>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+    </mvc:interceptors>
+
+    <!-- 配置静态资源，直接映射到对应的文件夹，不被DispatcherServlet处理 -->
+    <mvc:resources mapping="/css/**" location="/static/css/"/>
+    <mvc:resources mapping="/js/**" location="/static/js/"/>
+    <mvc:resources mapping="/img/**" location="/static/img/"/>
+    <mvc:resources mapping="/fonts/**" location="/static/fonts/"/>
+
+    <!--默认跳转路径 -->
+    <mvc:view-controller path="/" view-name="redirect:/index"/>
+    <mvc:view-controller path="/logout" view-name="redirect:/index"/>
+
+    <!-- 配置velocity引擎 -->
+    <bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+        <property name="resourceLoaderPath" value="/WEB-INF/view/"/>
+        <property name="configLocation" value="/WEB-INF/config/velocity.properties"/>
+    </bean>
+
+    <!-- 配置视图的显示 -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver">
+        <property name="order" value="1"/>
+        <property name="cache" value="false"/>
+        <property name="prefix" value="page/"/>
+        <property name="suffix" value=".vm"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+        <property name="layoutUrl" value="layout/default.vm"/>
+        <property name="toolboxConfigLocation" value="/WEB-INF/config/toolbox.xml"/>
+        <property name="dateToolAttribute" value="date"/><!--日期函数名称 -->
+        <property name="numberToolAttribute" value="number"/><!--数字函数名称 -->
+        <property name="exposeSpringMacroHelpers" value="true"/><!--是否使用spring对宏定义的支持 -->
+        <property name="exposeRequestAttributes" value="true"/><!--是否开放request属性 -->
+        <property name="requestContextAttribute" value="rc"/><!--request属性引用名称 -->
+    </bean>
+
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+</beans>

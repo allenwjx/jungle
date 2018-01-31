@@ -1,0 +1,10 @@
+<archetype-catalog>
+    <archetypes>
+        <archetype>
+            <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-archetype</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <description>Jungle Archetype</description>
+        </archetype>
+    </archetypes>
+</archetype-catalog>

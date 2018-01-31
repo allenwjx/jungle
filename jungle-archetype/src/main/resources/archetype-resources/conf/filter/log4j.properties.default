@@ -1,0 +1,1 @@
+log.root=${${rootArtifactId}.root}
