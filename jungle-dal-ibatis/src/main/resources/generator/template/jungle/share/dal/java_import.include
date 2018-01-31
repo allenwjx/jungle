@@ -6,6 +6,6 @@ import java.util.*;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-import com.ly.sof.utils.page.PageQuery;
-import com.ly.sof.utils.page.PageList;
-import com.ly.sof.utils.page.PageQueryUtils;
+import com.zeh.jungle.dal.paginator.PageQuery;
+import com.zeh.jungle.dal.paginator.PageList;
+import com.zeh.jungle.dal.paginator.PageQueryUtils;

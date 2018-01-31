@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean name="jungleContext" class="com.zeh.jungle.core.context.DefaultJungleContext">
+        <property name="eventMulticaster" ref="eventMulticaster"/>
+    </bean>
+
+    <bean name="sofPropertyPlaceholderConfigurer" class="com.zeh.jungle.core.configuration.JunglePropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="context" ref="jungleContext"/>
+    </bean>
+
+    <bean name="eventMulticaster" class="com.zeh.jungle.core.event.SimpleEventMulticaster">
+        <property name="taskExecutor" ref="eventThreadPool"/>
+    </bean>
+
+    <bean id="eventThreadPool" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="16"/>
+        <property name="maxPoolSize" value="64"/>
+        <property name="queueCapacity" value="1024"/>
+        <property name="keepAliveSeconds" value="300"/>
+        <property name="threadNamePrefix" value="jungle-event"/>
+    </bean>
+
+    <bean id="jvmMonitor" class="com.zeh.jungle.core.monitor.JvmMonitor"/>
+    <bean id="jdbcDriverFinalizer" class="com.zeh.jungle.core.support.JDBCDriverFinalizer"/>
+</beans>

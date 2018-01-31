@@ -127,9 +127,9 @@ public class DefaultUniformEventSubscriber implements UniformEventSubscriber {
 
         // register listener
         if (listener.getListenerType() == UniformEventMessageListener.ListenerTypeEnum.CONCURRENTLY) {
-            consumer.registerMessageListener(new SofMessageListenerConcurrently(listener));
+            consumer.registerMessageListener(new JungleMessageListenerConcurrently(listener));
         } else if (listener.getListenerType() == UniformEventMessageListener.ListenerTypeEnum.ORDERLY) {
-            consumer.registerMessageListener(new SofMessageListenerOrderly(listener));
+            consumer.registerMessageListener(new JungleMessageListenerOrderly(listener));
         } else {
             throw new IllegalArgumentException("统一消息事件监听器类型不支持，类型：" + listener.getListenerType());
         }
@@ -243,9 +243,9 @@ public class DefaultUniformEventSubscriber implements UniformEventSubscriber {
      * RocketMQ监听器实现
      * 
      * @author allen
-     * @version $Id: DefaultUniformEventSubscriber.java, v 0.1 2016年3月2日 下午4:50:05 allen Exp $
+     * @version $Id: JungleMessageListenerConcurrently.java, v 0.1 2016年3月2日 下午4:50:05 allen Exp $
      */
-    private class SofMessageListenerConcurrently implements MessageListenerConcurrently {
+    private class JungleMessageListenerConcurrently implements MessageListenerConcurrently {
 
         /** 统一消息事件监听器 */
         private UniformEventMessageListener listener;
@@ -253,7 +253,7 @@ public class DefaultUniformEventSubscriber implements UniformEventSubscriber {
         /**
          * @param listener
          */
-        public SofMessageListenerConcurrently(UniformEventMessageListener listener) {
+        public JungleMessageListenerConcurrently(UniformEventMessageListener listener) {
             super();
             this.listener = listener;
         }
@@ -307,16 +307,16 @@ public class DefaultUniformEventSubscriber implements UniformEventSubscriber {
      * 按序消费消息
      * 
      * @author allen
-     * @version $Id: DefaultUniformEventSubscriber.java, v 0.1 2016年3月2日 下午4:52:26 allen Exp $
+     * @version $Id: JungleMessageListenerOrderly.java, v 0.1 2016年3月2日 下午4:52:26 allen Exp $
      */
-    private class SofMessageListenerOrderly implements MessageListenerOrderly {
+    private class JungleMessageListenerOrderly implements MessageListenerOrderly {
         /** 统一消息事件监听器 */
         private UniformEventMessageListener listener;
 
         /**
          * @param listener
          */
-        public SofMessageListenerOrderly(UniformEventMessageListener listener) {
+        public JungleMessageListenerOrderly(UniformEventMessageListener listener) {
             super();
             this.listener = listener;
         }
@@ -359,7 +359,7 @@ public class DefaultUniformEventSubscriber implements UniformEventSubscriber {
             throw new IllegalStateException("消息消费失败，未能正确获取队列中得消息，List<MessageExt>.size()=0");
         }
 
-        // 因为SOF框架在生产者端设定了每次只投递一条消息，所以这里只获取第一条消息进行处理
+        // 因为Jungle框架在生产者端设定了每次只投递一条消息，所以这里只获取第一条消息进行处理
         MessageExt message = msgs.get(0);
         Object payload = deserialize(message);
         UniformEvent event = new DefaultUniformEvent(message.getTopic(), message.getTags());

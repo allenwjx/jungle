@@ -3,6 +3,7 @@ package com.zeh.jungle.core.context;
 import com.zeh.jungle.core.configuration.AppConfiguration;
 import com.zeh.jungle.core.event.BaseEvent;
 import com.zeh.jungle.core.event.EventMulticaster;
+import org.springframework.context.ApplicationContext;
 
 /**
  * 容器上下文
@@ -85,4 +86,11 @@ public interface JungleContext extends ListenerRegister {
      * @return 应用配置
      */
     AppConfiguration getAppConfiguration();
+
+    /**
+     * Get the spring application context
+     * 
+     * @return spring context
+     */
+    ApplicationContext getSpringContext();
 }

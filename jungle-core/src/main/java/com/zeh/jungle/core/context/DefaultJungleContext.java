@@ -1,12 +1,17 @@
 package com.zeh.jungle.core.context;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.util.Assert;
 
 import com.alibaba.dubbo.common.utils.ConfigUtils;
+import com.google.common.collect.Lists;
 import com.zeh.jungle.core.configuration.AppConfiguration;
 import com.zeh.jungle.core.configuration.AppConfigurationAware;
 import com.zeh.jungle.core.configuration.AppConfigurationImpl;
@@ -14,31 +19,8 @@ import com.zeh.jungle.core.event.BaseEvent;
 import com.zeh.jungle.core.event.BaseListener;
 import com.zeh.jungle.core.event.EventMulticaster;
 import com.zeh.jungle.core.event.SimpleEventMulticaster;
-import com.zeh.jungle.core.spring.bean.Channel;
-import com.zeh.jungle.core.spring.bean.ChannelEvent;
-import com.zeh.jungle.core.spring.bean.Channels;
-import com.zeh.jungle.core.spring.bean.ConsumerBean;
-import com.zeh.jungle.mq.consumer.DefaultUniformEventSubscriber;
-import com.zeh.jungle.mq.consumer.UniformEventMessageListener;
-import com.zeh.jungle.mq.consumer.UniformEventSubscriber;
-import com.zeh.jungle.mq.exception.MQException;
-import com.zeh.jungle.mq.producer.UniformEventPublisher;
 import com.zeh.jungle.utils.common.LoggerUtils;
 import com.zeh.jungle.utils.net.IpUtils;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
-import org.apache.rocketmq.common.protocol.heartbeat.MessageModel;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.access.BootstrapException;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.util.Assert;
-
-import com.google.common.collect.Lists;
 
 /**
  * 
@@ -96,8 +78,6 @@ public class DefaultJungleContext implements JungleContext, ApplicationContextAw
             setupJungleContext();
             registerListener();
             onContextStartup();
-            onProducerStartup();
-            onConsumerStartup();
             running = true;
         } catch (Exception e) {
             LoggerUtils.error(logger, e.getMessage(), e);
@@ -266,7 +246,7 @@ public class DefaultJungleContext implements JungleContext, ApplicationContextAw
     }
 
     /**
-     * 注入SOF上下文
+     * 注入Jungle上下文
      */
     protected void setupJungleContext() {
         LoggerUtils.info(logger, "[Jungle] Setup Jungle context ...");
@@ -307,50 +287,13 @@ public class DefaultJungleContext implements JungleContext, ApplicationContextAw
     }
 
     /**
-     * 执行MQ生产者启动
+     * Get the spring context
+     * 
+     * @return spring context
      */
-    protected void onProducerStartup() {
-        LoggerUtils.info(logger, "[Jungle] Executing producer startup for RocketMQ ...");
-        Map<String, UniformEventPublisher> beans = springContext.getBeansOfType(UniformEventPublisher.class, false, true);
-        if (beans != null) {
-            try {
-                for (UniformEventPublisher bean : beans.values()) {
-                    bean.start();
-                }
-            } catch (MQException e) {
-                throw new RuntimeException(e.getMessage(), e);
-            }
-        }
-    }
-
-    /**
-     * 执行MQ消费者启动
-     */
-    protected void onConsumerStartup() {
-        LoggerUtils.info(logger, "[Jungle] Executing consumer startup for RocketMQ ...");
-        Map<String, ConsumerBean> beans = springContext.getBeansOfType(ConsumerBean.class, false, true);
-        if (beans != null) {
-            try {
-                for (ConsumerBean bean : beans.values()) {
-                    // 创建消费者
-                    UniformEventSubscriber subscriber = createUniformEventSubscriber(bean);
-                    bean.setUniformEventSubscriber(subscriber);
-
-                    // 注册监听器
-                    UniformEventMessageListener listener = bean.getListener();
-                    Assert.notNull(listener, "消息消费者的监听器未设定，group：" + bean.getGroup());
-                    subscriber.registerUniformEventMessageListener(listener);
-
-                    // 订阅主题
-                    subscribe(bean, subscriber);
-
-                    // 启动消费者
-                    subscriber.start();
-                }
-            } catch (MQException e) {
-                throw new RuntimeException(e.getMessage(), e);
-            }
-        }
+    @Override
+    public ApplicationContext getSpringContext() {
+        return springContext;
     }
 
     /**
@@ -391,95 +334,5 @@ public class DefaultJungleContext implements JungleContext, ApplicationContextAw
         for (Map.Entry<String, String> prop : conf.getConfig().entrySet()) {
             LoggerUtils.info(logger, "Application configuration:{}={}", prop.getKey(), prop.getValue());
         }
-    }
-
-    /**
-     * 创建UniformEventSubscriber
-     * 
-     * @param cb
-     * @return
-     */
-    private UniformEventSubscriber createUniformEventSubscriber(ConsumerBean cb) {
-        Assert.notNull(StringUtils.isNotBlank(cb.getGroup()), "消费者未设定消息分组");
-        String nameSrvAddr = getNameSrvAddr(cb);
-        ConsumeFromWhere cfw = getConsumeFromWhere(cb.getConsumeFromWhere());
-        MessageModel mm = getMessageModel(cb.getMessageModel());
-        UniformEventSubscriber subscriber = new DefaultUniformEventSubscriber(cb.getGroup(), nameSrvAddr, cfw, mm, cb.getConsumeThreadMax(), cb.getConsumeThreadMin(),
-            cb.getPullBatchSize(), cb.getPullInterval(), cb.getPullThresholdForQueue());
-        return subscriber;
-    }
-
-    /**
-     * 消息订阅
-     * 
-     * @param cb
-     * @param subscriber
-     */
-    private void subscribe(ConsumerBean cb, UniformEventSubscriber subscriber) {
-        Channels channels = cb.getChannels();
-        Assert.notNull(channels, "消费者未订阅主题，group：" + cb.getGroup());
-        List<Channel> eventChannels = channels.getChannels();
-        Assert.notNull(CollectionUtils.isNotEmpty(eventChannels), "消费者未订阅主题，group：" + cb.getGroup());
-
-        for (Channel eventChannel : eventChannels) {
-            String topic = eventChannel.getTopic();
-            Assert.notNull(StringUtils.isNotBlank(topic), "消费者未订阅主题，group：" + cb.getGroup());
-
-            List<ChannelEvent> channelEvents = eventChannel.getEvents();
-            Assert.notNull(CollectionUtils.isNotEmpty(channelEvents), "消费者未订阅任何事件信息，group：" + cb.getGroup());
-
-            // 开始订阅
-            for (ChannelEvent channelEvent : channelEvents) {
-                String eventCode = channelEvent.getEventCode();
-                Assert.notNull(StringUtils.isNotBlank(eventCode), "消费者事件ID未设定，group：" + cb.getGroup());
-                try {
-                    subscriber.subscribe(topic, eventCode);
-                } catch (MQException e) {
-                    LoggerUtils.error(logger, e.getMessage(), e);
-                    throw new BootstrapException(e.getMessage(), e);
-                }
-            }
-
-        }
-    }
-
-    /**
-     * 获取消息命名服务地址
-     * 
-     * @param cb
-     * @return
-     */
-    private String getNameSrvAddr(ConsumerBean cb) {
-        String nameSrvAddr = cb.getNameSrvAddress();
-        if (StringUtils.isNotBlank(nameSrvAddr)) {
-            return nameSrvAddr;
-        }
-
-        nameSrvAddr = appConfiguration.getPropertyValue(AppConfiguration.MQ_NAME_SERVER_ADDR);
-        Assert.notNull(StringUtils.isNotBlank(nameSrvAddr), "消息命名服务器地址未设定，group：" + cb.getGroup());
-        return nameSrvAddr;
-    }
-
-    /**
-     * 
-     * @param code
-     * @return
-     */
-    private ConsumeFromWhere getConsumeFromWhere(String code) {
-        if (StringUtils.isBlank(code)) {
-            return null;
-        }
-        return ConsumeFromWhere.valueOf(code);
-    }
-
-    /**
-     * @param code
-     * @return
-     */
-    private MessageModel getMessageModel(String code) {
-        if (StringUtils.isBlank(code)) {
-            return null;
-        }
-        return MessageModel.valueOf(code);
     }
 }

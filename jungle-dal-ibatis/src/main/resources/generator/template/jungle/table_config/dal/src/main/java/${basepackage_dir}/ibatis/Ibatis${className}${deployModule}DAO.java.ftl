@@ -17,7 +17,7 @@ import ${tableConfig.basepackage}.daointerface.${tableConfig.className}${deployM
  * ${tableConfig.className}${deployModule}DAO
 <#include '/java_description.include'/>
  */
-public class Ibatis${tableConfig.className}${deployModule}DAO extends <#if (tableConfig.autoSwitchDataSrc)>com.ly.sof.dal.ibatis.AutoSwitchDataSrcSqlMapClientDaoSupport<#else>SqlMapClientDaoSupport</#if> implements ${tableConfig.className}${deployModule}DAO {
+public class Ibatis${tableConfig.className}${deployModule}DAO extends SqlMapClientDaoSupport implements ${tableConfig.className}${deployModule}DAO {
 
 <#list tableConfig.sqls as sql>
 
