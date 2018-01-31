@@ -47,7 +47,7 @@ public abstract class GZipUtils {
 
     /**
      * 文件压缩
-     * @param path	源文件路径
+     * @param path 源文件路径
      * @throws Exception
      */
     public static void compress(String path) throws Exception {
