@@ -20,7 +20,7 @@ public interface AppConfiguration {
     String SYS_APP_NAME        = "app.name";
 
     /** 应用运行模式 */
-    String SYS_RUN_MODE        = "sof-env";
+    String SYS_RUN_MODE        = "jungle-env";
 
     /** 消息命名服务器地址 */
     String MQ_NAME_SERVER_ADDR = "mq.namesrv.addr";

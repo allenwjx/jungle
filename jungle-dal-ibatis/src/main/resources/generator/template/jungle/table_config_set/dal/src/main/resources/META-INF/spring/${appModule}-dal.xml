@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-autowire="byName">
+    <!-- ======================================================================== -->
+    <!--  DAO configs: auto generate by dalgen                                    -->
+    <!-- ======================================================================== -->
+
+<#list tableConfigSet.tableConfigs as tableConfig>
+    <bean id="${tableConfig.className?uncap_first}${deployModule}DAO" class="${tableConfig.basepackage}.ibatis.Ibatis${tableConfig.className}${deployModule}DAO" parent="<#if (tableConfig.autoSwitchDataSrc)>autoSwitchDataSrcBaseSqlMapClientDAO<#else>${appModule}SqlMapClientDAO</#if>"/>
+</#list>
+	
+</beans>

@@ -43,7 +43,7 @@ public interface JungleContext extends ListenerRegister {
     /**
      * 容器启动
      */
-    boolean init();
+    boolean start();
 
     /**
      * 容器关闭

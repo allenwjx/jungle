@@ -20,10 +20,10 @@ public class JGError extends Message {
     /**  */
     private static final long  serialVersionUID   = 1L;
 
-    /** 默认错误消息, 应用程序切勿使用该错误信息，只有SOF容器使用该错误信息 */
+    /** 默认错误消息, 应用程序切勿使用该错误信息，只有Jungle容器使用该错误信息 */
     public static final String DEFAULT_ERROR_MSG  = "系统错误";
 
-    /** 默认错误码, 应用程序切勿使用该错误码，只有SOF容器使用该错误码*/
+    /** 默认错误码, 应用程序切勿使用该错误码，只有Jungle容器使用该错误码*/
     public static final String DEFAULT_ERROR_CODE = "JG0700100000";
 
     /** 错误码 */

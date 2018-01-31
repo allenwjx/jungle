@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://schema.jungle.com/schema/jungle"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://schema.jungle.com/schema/jungle"
+            elementFormDefault="qualified">
+
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+    <xsd:import namespace="http://www.springframework.org/schema/tool"/>
+
+    <xsd:annotation>
+        <xsd:documentation>
+            <![CDATA[ Namespace support for the Jungle services provided by Jungle framework. ]]>
+        </xsd:documentation>
+    </xsd:annotation>
+
+    <!-- RocketMQ publisher -->
+    <xsd:complexType name="publisherType">
+        <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+                <xsd:attribute name="group" type="xsd:string" use="required"/>
+                <xsd:attribute name="nameSrvAddress" type="xsd:string" use="optional"/>
+                <xsd:attribute name="failover" type="xsd:string" use="optional"/>
+                <xsd:attribute name="retry" type="xsd:string" use="optional"/>
+                <xsd:attribute name="timeout" type="xsd:string" use="optional"/>
+                <xsd:attribute name="poolSize" type="xsd:string" use="optional"/>
+                <xsd:attribute name="maxMessageSize" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <!-- RocketMQ consumer -->
+    <xsd:complexType name="Tchannel">
+        <xsd:attribute name="topic" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="Tconsumer">
+        <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+                <xsd:sequence minOccurs="0" maxOccurs="1">
+                    <xsd:element name="listener" type="TconsumerListener" minOccurs="1"/>
+                    <xsd:element name="channels" type="TconsumerChannels" minOccurs="1"/>
+                </xsd:sequence>
+                <xsd:attribute name="group" type="xsd:string" use="required"/>
+                <xsd:attribute name="nameSrvAddress" type="xsd:string" use="optional"/>
+                <xsd:attribute name="consumeFromWhere" type="xsd:string" use="optional"/>
+                <xsd:attribute name="messageModel" type="xsd:string" use="optional"/>
+                <xsd:attribute name="consumeThreadMax" type="xsd:string" use="optional"/>
+                <xsd:attribute name="consumeThreadMin" type="xsd:string" use="optional"/>
+                <xsd:attribute name="pullBatchSize" type="xsd:string" use="optional"/>
+                <xsd:attribute name="pullInterval" type="xsd:string" use="optional"/>
+                <xsd:attribute name="pullThresholdForQueue" type="xsd:string" use="optional"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="TconsumerChannels">
+        <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+                <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+                    <xsd:element name="channel" type="TeventChannel" minOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="TeventChannel">
+        <xsd:complexContent>
+            <xsd:extension base="Tchannel">
+                <xsd:sequence minOccurs="1" maxOccurs="1">
+                    <xsd:element name="event" type="Tevent" minOccurs="1"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="Tevent">
+        <xsd:attribute name="eventType" type="xsd:string" use="optional"/>
+        <xsd:attribute name="eventCode" type="xsd:string" use="required"/>
+    </xsd:complexType>
+    <xsd:complexType name="TconsumerListener">
+        <xsd:complexContent>
+            <xsd:extension base="beans:identifiedType">
+                <xsd:attribute name="ref" type="xsd:string" use="required"/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+
+    <xsd:element name="publisher" type="publisherType"/>
+    <xsd:element name="consumer" type="Tconsumer"/>
+    <xsd:element name="listener" type="TconsumerListener"/>
+
+</xsd:schema>

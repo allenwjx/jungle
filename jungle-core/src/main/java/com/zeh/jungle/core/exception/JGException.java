@@ -5,7 +5,7 @@ import com.zeh.jungle.core.error.JGError;
 import com.zeh.jungle.utils.common.ExceptionHelper;
 
 /**
- * SOF基础异常，所有的异常定义都应继承该异常
+ * Jungle基础异常，所有的异常定义都应继承该异常
  * 
  * @author allen
  * @version $Id: JGException.java, v 0.1 2016年2月26日 下午3:14:09 allen Exp $
