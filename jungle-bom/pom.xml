@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.zeh.jungle</groupId>
+        <artifactId>jungle</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>jungle-bom</artifactId>
+    <packaging>pom</packaging>
+    <name>Jungle Bom Module</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-dal-ibatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-utils</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-dal-ibatis</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-utils</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
