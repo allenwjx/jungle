@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/index.htm")
+    @RequestMapping("/index")
     public String sample() {
         return "index";
     }
