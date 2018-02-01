@@ -24,6 +24,10 @@
         </dependency>
         <dependency>
             <groupId>com.zeh.jungle</groupId>
+            <artifactId>jungle-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.zeh.jungle</groupId>
             <artifactId>jungle-utils</artifactId>
         </dependency>
         <dependency>
@@ -70,6 +74,11 @@
             <dependency>
                 <groupId>com.zeh.jungle</groupId>
                 <artifactId>jungle-fsm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zeh.jungle</groupId>
+                <artifactId>jungle-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
