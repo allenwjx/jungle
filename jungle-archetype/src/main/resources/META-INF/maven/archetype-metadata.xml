@@ -2,10 +2,10 @@
 <archetype-descriptor name="app-parent">
 	<requiredProperties>
 		<requiredProperty key="jungle_core_version">
-			<defaultValue>2.0.5.5</defaultValue>
+			<defaultValue>1.0.0</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="core_lib_version">
-			<defaultValue>2.0.5.5</defaultValue>
+			<defaultValue>1.0.0</defaultValue>
 		</requiredProperty>
 		<requiredProperty key="project_type" hint="choose 'web' or 'core'">
 			<validationRegex>^web$|^core$</validationRegex>
