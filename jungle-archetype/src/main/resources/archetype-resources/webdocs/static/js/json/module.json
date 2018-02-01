@@ -1,0 +1,264 @@
+[
+  {
+    "name": "通用",
+    "model":"currency",
+    "children": [
+      {
+        "name": "发送短信",
+        "model": "sendMessage",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      },
+      {
+        "name": "追加邮寄",
+        "model": "addToPost",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      },
+      {
+        "name": "创建工单",
+        "model": "createWorkOrder",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "查看工单",
+        "model": "viewWorkOrder",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "录入投诉",
+        "model": "inputComplaints",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "OR下单",
+        "model": "ORBook",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "提醒OR",
+        "model": "remindOR",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "屏蔽订单",
+        "model": "shieldOrder",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "录账表格",
+        "model": "entryForm",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "投诉前置",
+        "model": "complaintsLead",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "备注手机号",
+        "model": "noteMobile",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "盗刷卡嫌疑",
+        "model": "suspectedCard",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "信息推送监控",
+        "model": "pushMonitoring",
+        "url": "",
+        "isStore":false
+      }
+    ]
+  },
+  {
+    "name": "退订",
+    "model":"refund",
+    "children": [
+      {
+        "name": "退款备注",
+        "model": "noteRefund",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "申请退票",
+        "model": "applyRefund",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "拒绝出票申请",
+        "model": "rejectOutTicket",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "退订抵用券",
+        "model": "refundVouchers",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "首次特殊处理",
+        "model": "firstSpecial",
+        "url": "",
+        "isStore":false
+      }
+    ]
+  },
+  {
+    "name": "支付",
+    "model":"pay",
+    "children": [
+      {
+        "name": "支付障碍",
+        "model": "paymentBarriers",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "更换支付方式",
+        "model": "changePayMethodMain",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      },
+      {
+        "name": "支付交易流水",
+        "model": "payTransactionFlow",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      },
+      {
+        "name": "线下支付供应商",
+        "model": "paymentProvider",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "录入支付单",
+        "model": "entryPaymentOrder",
+        "url": "",
+        "type":"link",
+        "isStore":false
+      },
+      {
+        "name": "恢复支付",
+        "model": "resumePayment",
+        "url": "",
+        "isStore":false
+      }
+    ]
+  },
+  {
+    "name": "航变/改签",
+    "model":"change",
+    "children": [
+      {
+        "name": "申请改签",
+        "model": "applyChange",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "收费改签",
+        "model": "chargeChange",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "改名字",
+        "model": "changeName",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "信用卡支付",
+        "model": "creditPay",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "线下改签",
+        "model": "changeOffLine",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "航班保护",
+        "model": "flightProtect",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "航班确认",
+        "model": "flightConfirm",
+        "url": "",
+        "isStore":false
+      }
+    ]
+  },
+  {
+    "name": "机票信息",
+    "model":"ticket",
+    "children": [
+      {
+        "name": "机票详情",
+        "model": "ticketDetail",
+        "url": "",
+        "type":"link",
+        "isStore":false
+      },
+      {
+        "name": "创建PNR",
+        "model": "createPNR",
+        "url": "",
+        "type":"link",
+        "isStore":false
+      },
+      {
+        "name": "补乘客PNR",
+        "model": "passengerPNR",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      },
+      {
+        "name": "PNR补座",
+        "model": "PNRPatch",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      },
+      {
+        "name": "点评判断",
+        "model": "comment",
+        "url": "",
+        "isStore":false
+      },
+      {
+        "name": "客票状态",
+        "model": "ticketState",
+        "url": "",
+        "type":"modal",
+        "isStore":false
+      }
+    ]
+  }
+]

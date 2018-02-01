@@ -10,28 +10,113 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta content="" name="description"/>
-	<meta content="" name="author"/>
-	<meta name="_csrf" content="${_csrf.token}"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+    <meta name="_csrf" content="${_csrf.token}"/>
     <meta name="_csrf_header" content="${_csrf.headerName}"/>
-    <title>天启</title>
+    <title>国际机票运营平台</title>
+    <link rel="shortcut icon" href="${rc.contextPath}/img/favicon.ico" type="image/x-icon"/>
     <script src="${rc.contextPath}/js/plugins/pace/pace.min.js" type="text/javascript"></script>
     ${symbol_pound}parse("widget/css-loader.vm")
     <script src="${rc.contextPath}/js/plugins/jquery-1.12.2.min.js" type="text/javascript"></script>
-	<script src="${rc.contextPath}/js/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/js/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <style>
+        .green-meadow.btn {
+            background-color: #09c !important;
+        }
+    </style>
+    ${symbol_pound}if($noframe)
+    <style>
+        .page-content-wrapper .page-content {
+            margin-left: 0px !important;
+            margin-top: 0px !important;
+            min-height: 600px;
+            padding: 2px 2px 2px 2px;
+        }
+    </style>
+    ${symbol_pound}end
 </head>
 
-<body class="page-header-fixed page-quick-sidebar-over-content page-container-bg-solid page-sidebar-closed page-sidebar-closed-hide-logo">
-	${symbol_pound}parse("widget/header-menu.vm")
-	<div class="page-container">
-		${symbol_pound}parse("widget/sidebar-menu.vm")
-		<div class="page-content-wrapper">
-			<div class="page-content">
-				$screen_content
-			</div>
-		</div>
-	</div>
-	${symbol_pound}parse("widget/footer.vm")
-	${symbol_pound}parse("widget/js-loader.vm")
+<script>
+    $(document).ready(function () {
+        $('.page-sidebar .sidebar-toggler').click();
+        new Vue({
+            el: '#vue-evn',
+            data: {
+                dev: false,
+                pre: false
+            },
+            beforeCompile: function () {
+                this.getEnv();
+            },
+            methods: {
+                getEnv: function () {
+                    var vm = this;
+                    jQuery.ajax({
+                        type: "get",
+                        url: __ctx + "/common/env",
+                        success: function (data) {
+                            //预发
+                            if (data.message == 'predeploy') {
+                                vm.pre = true;
+                            } else {
+                                vm.pre = false;
+                            }
+                            //测试
+                            if (data.message == 'test' || data.message == 'dev') {
+                                vm.dev = true;
+                            } else {
+                                vm.dev = false;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+        $('.development').on('mouseover', function (e) {
+            $('.development').css("display", "none")
+        });
+        $('.predeploy').on('mouseover', function (e) {
+            $('.predeploy').css("display", "none")
+        });
+    });
+</script>
+
+<body class="page-header-fixed page-quick-sidebar-over-content page-container-bg-solid #if(!$noframe) page-sidebar-closed #end page-sidebar-closed-hide-logo">
+
+    ${symbol_pound}if(!$noframe)
+    ${symbol_pound}parse("widget/header-menu.vm")
+    ${symbol_pound}end
+<div id="vue-evn">
+    <div class="development" v-show="dev" v-cloak></div>
+    <div class="predeploy" v-show="pre" v-cloak></div>
+</div>
+<div class="page-container" ${symbol_pound}if($noframe) style="margin-top: 0px !important;" ${symbol_pound}end>
+    ${symbol_pound}if(!$noframe)
+    ${symbol_pound}parse("widget/sidebar-menu.vm")
+    ${symbol_pound}end
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            $screen_content
+        </div>
+    </div>
+</div>
+    ${symbol_pound}if(!$noframe)
+    ${symbol_pound}parse("widget/footer.vm")
+    ${symbol_pound}end
+    ${symbol_pound}parse("widget/js-loader.vm")
+<script>
+        ${symbol_pound}if (!$noframe)
+        $(document).ready(function () {
+            if ($(".page-header-fixed").hasClass("page-sidebar-closed")) {
+                $(".page-sidebar-menu").removeClass("sidebar-defined");
+                $(".sidebar-report").addClass("sidebar-defined-li");
+            } else {
+                $(".page-sidebar-menu").addClass("sidebar-defined");
+                $(".sidebar-report").removeClass("sidebar-defined-li")
+            }
+        })
+        ${symbol_pound}end
+</script>
 </body>
 </html>

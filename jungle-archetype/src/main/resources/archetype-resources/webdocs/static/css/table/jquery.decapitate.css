@@ -1,0 +1,27 @@
+/* Allow elements to be absolutely positioned within this container */
+.decap-body-wrapper {
+    position: relative;
+}
+
+/* Pin the table header wrapper to the top of the viewport */
+.decap-head-wrapper {
+    position: fixed;
+    top: 0;
+    /* left: 0;   // should be supplied by designer (equal to body margin) */
+    /* right: 0;  // should be supplied by designer (equal to body margin) */
+}
+
+/* Hide the cloned table header until it hits the top of the viewport */
+/* Can't use `display: none` because we need the element to occupy its full height */
+.decap-head-wrapper.affix-top .decap-head {
+    visibility: hidden;
+}
+
+/* Position the cloned table header relative to the last row of the table */
+.decap-head-wrapper.affix-bottom {
+    position: absolute;
+    top: inherit;
+    left: 0;
+    right: 0;
+    /* bottom: 0;  // should be supplied by designer (equal to height of last table row) */
+}

@@ -14,10 +14,10 @@ General reset
 /* Set default body */
 body {
   color: #333333;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
   padding: 0px !important;
   margin: 0px !important;
-  font-size: 13px;
+  font-size: 12px;
   direction: ltr;
 }
 
@@ -162,7 +162,7 @@ body {
 }
 .form-horizontal .form-group.form-md-line-input > label {
   padding-top: 5px;
-  font-size: 13px;
+  font-size: 12px;
   color: #888888;
   opacity: 1 ;
   filter: alpha(opacity=100) ;
@@ -233,7 +233,7 @@ body {
 .form-group.form-md-line-input .form-control ~ label {
   top: 0;
   margin-bottom: 0;
-  font-size: 13px;
+  font-size: 12px;
   color: #888888;
   opacity: 1 ;
   filter: alpha(opacity=100) ;
@@ -275,15 +275,15 @@ body {
 }
 .form-group.form-md-line-input.form-md-floating-label .form-control[readonly] ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.edited ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.form-control-static ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control:focus:not([readonly]) ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.focus:not([readonly]) ~ label {
   top: 0;
-  font-size: 13px;
+  font-size: 12px;
 }
 .form-group.form-md-line-input.form-md-floating-label .form-control.input-sm ~ label {
-  font-size: 14px;
+  font-size: 12px;
   top: 24px;
 }
 .form-group.form-md-line-input.form-md-floating-label .form-control.input-sm[readonly] ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-sm.form-control-static ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-sm.edited ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-sm:focus:not([readonly]) ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-sm.focus:not([readonly]) ~ label {
   top: 0;
-  font-size: 13px;
+  font-size: 12px;
 }
 .form-group.form-md-line-input.form-md-floating-label .form-control.input-lg ~ label {
   font-size: 20px;
@@ -291,7 +291,7 @@ body {
 }
 .form-group.form-md-line-input.form-md-floating-label .form-control.input-lg[readonly] ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-lg.edited ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-lg.form-control-static ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-lg:focus:not([readonly]) ~ label, .form-group.form-md-line-input.form-md-floating-label .form-control.input-lg.focus:not([readonly]) ~ label {
   top: 0;
-  font-size: 13px;
+  font-size: 12px;
 }
 .form-group.form-md-line-input.form-md-floating-label .input-icon > label {
   padding-left: 34px;
@@ -314,7 +314,7 @@ body {
   margin: 2px 0 0 0;
   opacity: 0 ;
   filter: alpha(opacity=0) ;
-  font-size: 13px;
+  font-size: 12px;
 }
 .form-group.form-md-line-input > .input-icon > i {
   left: 0;
@@ -665,7 +665,7 @@ body {
 }
 
 .form-md-checkboxes > label {
-  font-size: 13px;
+  font-size: 12px;
   color: #888888;
   opacity: 1 ;
   filter: alpha(opacity=100) ;
@@ -863,7 +863,7 @@ body {
 }
 
 .form-md-radios > label {
-  font-size: 13px;
+  font-size: 12px;
   color: #888888;
   opacity: 1 ;
   filter: alpha(opacity=100) ;
@@ -947,7 +947,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
   font-weight: 300;
 }
 
@@ -968,7 +968,7 @@ h4 {
 }
 
 h5 {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 h6 {
@@ -1103,7 +1103,7 @@ a:hover {
 }
 
 .primary-font {
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
 }
 
 .bold {
@@ -1139,7 +1139,7 @@ a:hover {
 }
 
 .font-sm {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .font-xs {
@@ -1307,7 +1307,7 @@ Top News Blocks(new in v1.2.2)
   margin: 8px 0;
 }
 .top-news em {
-  font-size: 13px;
+  font-size: 12px;
   margin-bottom: 8px;
   margin-bottom: 0;
   font-style: normal;
@@ -1495,7 +1495,7 @@ Number & Chart Stats
   margin: 0 5px;
 }
 .number-stats .stat-number .title {
-  font-size: 13px;
+  font-size: 12px;
   margin-bottom: 3px;
   color: #B8C3C7;
 }
@@ -1960,7 +1960,7 @@ Customized Bootstrap Buttons
 .btn {
   border-width: 0;
   padding: 7px 14px;
-  font-size: 14px;
+  font-size: 13px;
   outline: none !important;
   background-image: none !important;
   filter: none;
@@ -2209,7 +2209,7 @@ Customized Bootstrap Buttons
 
 /* Button sizes */
 .btn > i {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .btn-lg {
@@ -2225,12 +2225,12 @@ Customized Bootstrap Buttons
 .btn-sm,
 .btn-xs {
   padding: 4px 10px 5px 10px;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .btn-sm > i,
 .btn-xs > i {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .btn-xs {
@@ -2250,7 +2250,7 @@ Customized Bootstrap Buttons
 .btn-arrow-link {
   vertical-align: middle;
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
 }
 .btn-arrow-link > i {
   font-size: 14px;
@@ -2305,7 +2305,7 @@ Customized Bootstrap Buttons
 .btn-sm > [class^="glyphicon-"],
 .btn-sm > [class*=" glyphicon-"],
 .btn-sm > i {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .btn-xs > [class^="glyphicon-"],
@@ -2411,7 +2411,7 @@ Charts and statistics
   overflow: hidden;
   height: 300px;
   width: 100%;
-  font-family: "Open Sans", sans-serif !important;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
   font-size: 14px;
 }
 
@@ -2483,12 +2483,12 @@ Chats
 }
 .chats li .name {
   color: #3590c1;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
 }
 .chats li .datetime {
   color: #333;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
 }
 .chats li .message {
@@ -2623,7 +2623,7 @@ Dropdown Menu
   margin: 10px  0px 0px 0px;
   box-shadow: 5px 5px rgba(102, 102, 102, 0.1);
   border: 1px solid #eee;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -2876,7 +2876,7 @@ Dropdown Checkboxes
   min-width: 225px;
   padding: 20px 0;
   margin: 25px 0 0;
-  font-size: 13px;
+  font-size: 12px;
   text-align: left;
   list-style: none;
   position: absolute;
@@ -3075,7 +3075,7 @@ Form Layouts
 }
 
 .help-inline {
-  font-size: 13px;
+  font-size: 12px;
   color: #737373;
   display: inline-block;
   padding: 5px;
@@ -3335,7 +3335,7 @@ Forms
 
 /* Form inputs */
 .form-control {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   color: #333;
   background-color: #fff;
@@ -3384,7 +3384,7 @@ Forms
 .uneditable-input {
   padding: 6px 12px;
   min-width: 206px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: normal;
   height: 34px;
   color: #333;
@@ -3438,7 +3438,7 @@ Forms
 .input-sm {
   height: 28px;
   padding: 5px 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 select.input-sm {
@@ -3493,7 +3493,7 @@ input[type="color"].spinner {
 /* Form labels */
 label {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Static form control */
@@ -3502,7 +3502,7 @@ label {
   display: inline-block;
 }
 
-/* Feedback states */
+/* feedback states */
 .has-success .help-block,
 .has-success .help-inline,
 .has-success .control-label,
@@ -3766,7 +3766,7 @@ Input icons
 }
 .input-icon.input-icon-sm > i {
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /***
@@ -3774,11 +3774,11 @@ Customized Bootstrap Labels
 ***/
 .label {
   text-shadow: none !important;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 300;
   padding: 3px 6px 3px 6px;
   color: #fff;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
 }
 .label.label-sm {
   font-size: 12px;
@@ -3977,7 +3977,7 @@ UI Loading
   padding: 10px;
   margin: 0 auto;
   color: #000 !important;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
   text-align: center;
   vertical-align: middle;
@@ -4014,7 +4014,7 @@ UI Loading
   padding: 7px;
   text-align: center;
   color: #333;
-  font-size: 13px;
+  font-size: 12px;
   border: 1px solid #ddd;
   background-color: #eee;
   vertical-align: middle;
@@ -4277,7 +4277,7 @@ Notes
   margin-right: -10px;
 }
 .note p {
-  font-size: 13px;
+  font-size: 12px;
 }
 .note p:last-child {
   margin-bottom: 0;
@@ -4402,7 +4402,7 @@ Customized Bootstrap Panels
   overflow: visible;
 }
 .panel .panel-body {
-  font-size: 13px;
+  font-size: 12px;
 }
 .panel .panel-title > a:hover {
   text-decoration: none;
@@ -4641,7 +4641,7 @@ Portlets
   float: left;
   margin-top: 4px;
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   margin-right: 5px;
   color: #666;
 }
@@ -4653,7 +4653,7 @@ Portlets
   margin: 0;
   line-height: 13px;
   color: #9eacb4;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 400;
 }
 .portlet > .portlet-title > .actions {
@@ -4669,7 +4669,7 @@ Portlets
 .portlet > .portlet-title > .actions > .btn-group > .btn,
 .portlet > .portlet-title > .actions > .btn-group > .btn.btn-sm {
   padding: 4px 10px;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
 }
 .portlet > .portlet-title > .actions > .btn.btn-default,
@@ -4682,7 +4682,7 @@ Portlets
 .portlet > .portlet-title > .actions > .btn.btn-sm > i,
 .portlet > .portlet-title > .actions > .btn-group > .btn > i,
 .portlet > .portlet-title > .actions > .btn-group > .btn.btn-sm > i {
-  font-size: 13px;
+  font-size: 12px;
 }
 .portlet > .portlet-title > .actions .btn-icon-only {
   padding: 5px 7px 3px 7px;
@@ -4749,7 +4749,7 @@ Portlets
   display: inline-block;
   top: -3px;
   position: relative;
-  font-size: 13px;
+  font-size: 12px;
   font-family: FontAwesome;
   color: #ACACAC;
 }
@@ -4952,12 +4952,12 @@ Portlets
 .portlet.light > .portlet-title > .inputs > .portlet-input .input-icon > .form-control {
   height: 30px;
   padding: 2px 26px 3px 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .portlet.light > .portlet-title > .inputs > .portlet-input > .form-control {
   height: 30px;
   padding: 3px 10px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .portlet.light > .portlet-title > .pagination {
   padding: 2px 0 13px 0;
@@ -4973,7 +4973,7 @@ Portlets
 .portlet.light > .portlet-title > .nav-tabs > li > a {
   margin: 0;
   padding: 12px 13px 13px 13px;
-  font-size: 13px;
+  font-size: 12px;
   color: #666;
 }
 .portlet.light > .portlet-title > .nav-tabs > li.active > a, .portlet.light > .portlet-title > .nav-tabs > li:hover > a {
@@ -5811,12 +5811,12 @@ Responsive Flip Scroll Tables
   }
 
   .flip-scroll .flip-content tbody tr td {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.483;
   }
 
   .flip-scroll .table-bordered.flip-content tbody tr td {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.43;
   }
 
@@ -5974,9 +5974,9 @@ Light Table
 }
 .table.table-light > thead > tr > th {
   font-weight: 600;
-  font-size: 13px;
+  font-size: 12px;
   color: #93a2a9;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","\5FAE\8F6F\96C5\9ED1",SimSun,sans-serif;
   border: 0;
   border-bottom: 1px solid #F2F5F8;
 }
@@ -6037,7 +6037,7 @@ Customized Bootstrap Tabs
 .nav-tabs.nav-tabs-sm > li > a, .nav-tabs.nav-pills-sm > li > a,
 .nav-pills.nav-tabs-sm > li > a,
 .nav-pills.nav-pills-sm > li > a {
-  font-size: 13px;
+  font-size: 12px;
 }
 .nav-tabs .dropdown.open > .dropdown-toggle,
 .nav-pills .dropdown.open > .dropdown-toggle {
@@ -6423,7 +6423,7 @@ Tiles(new in v1.1.1)
 .tiles .tile.selected .check:after {
   content: "";
   font-family: FontAwesome;
-  font-size: 13px;
+  font-size: 12px;
   content: "\f00c";
   display: inline-block;
   position: absolute;
@@ -6459,7 +6459,7 @@ Tiles(new in v1.1.1)
 }
 .tiles .tile .tile-body p {
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   color: #000000;
   color: #ffffff;
   line-height: 20px;
@@ -6541,7 +6541,7 @@ Tiles(new in v1.1.1)
   margin-left: 10px;
   margin-right: 15px;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 12px;
   color: #ffffff;
 }
 .tiles .tile .tile-object > .name > i {
@@ -6879,7 +6879,7 @@ Custimized Bootstrap Wells
   border-radius: 3px !important;
 }
 .widget-news .widget-news-right-body p {
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /*** Widget Thumb ***/
@@ -7035,7 +7035,7 @@ Custimized Bootstrap Wells
   margin: 0 0 7px;
 }
 .widget-media .widget-media-body .widget-media-body-subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: #7e8c9e;
 }
 
@@ -7073,13 +7073,13 @@ Custimized Bootstrap Wells
 }
 .widget-blog .widget-blog-subtitle {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   color: #8e9daa;
   letter-spacing: 3px;
 }
 .widget-blog .btn-widget-purple {
   display: inline-block;
-  font-size: 13px;
+  font-size: 12px;
   color: #8e9daa;
   border: 1px solid #8e9daa;
   padding: 7px 17px;

@@ -3537,7 +3537,7 @@ label {
   display: inline-block;
 }
 
-/* Feedback states */
+/* feedback states */
 .has-success .help-block,
 .has-success .help-inline,
 .has-success .control-label,
@@ -11593,6 +11593,14 @@ Red Sunglo
 /* General Text & Icon Font Colors */
 .font-red-sunglo {
   color: #E26A6A !important;
+}
+
+.font-blue-sunglo {
+  color: #2386CA !important;
+}
+
+.font-green-sunglo {
+  color: #1F897F !important;
 }
 
 .progress-bar.red-sunglo {

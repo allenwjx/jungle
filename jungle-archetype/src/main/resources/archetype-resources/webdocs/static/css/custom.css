@@ -10,6 +10,24 @@ body {
     background: #FFF;
 }
 
+.page-header.navbar {
+    background-color: #09c;
+}
+
+.page-header.navbar .top-menu .navbar-nav > li {
+    margin: 0px;
+    padding: 0px 4px;
+    height: 46px;
+    display: inline-block;
+}
+.page-header.navbar .top-menu .navbar-nav > li > a {
+    color: #fff;
+    padding: 14px 6px 12px 8px;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #008fbf;
+}
+
 .page-header.navbar .top-menu .navbar-nav > li.dropdown-user > .dropdown-toggle > .username {
 	color: #fff;
     font-size: 14px;
@@ -31,4 +49,21 @@ body {
 	border-right: 1px solid #DCDCDC;
 	overflow: auto;
     box-shadow: none;
+}
+
+.red {
+	color: red;
+}
+
+[v-cloak] {
+	display: none;
+}
+
+.passenger-pnr-td-display-inlineflex
+{
+    display: inline-flex;
+}
+.passenger-pnr-td-input
+{
+    width: 80%;
 }

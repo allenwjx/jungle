@@ -30,8 +30,7 @@
  */
 Vue.component('vue-select', {
     template: '<select v-bind:class="class" v-model="model" v-bind:multiple="multiple" v-bind:size="size" v-bind:name="name" v-bind:id="id" v-bind:disabled="disabled">' +
-    '<option v-for="item in options" v-text="item.text" value="{{item.value}}"></option>' +
-    '<option value>--请选择--</option>' +
+     '<option></option> <option v-for="item in options" v-text="item.text" value="{{item.value}}"></option>' +
     '</select>',
     props: {
         id: {
@@ -49,17 +48,17 @@ Vue.component('vue-select', {
         class: {
             type: String,
             required: false,
-            default: function() {
+            default: function () {
                 return "js-states form-control";
             }
         },
         model: {
             required: true
         },
-        transfer:{
+        transfer: {
             type: Boolean,
             required: false,
-            default: function() {
+            default: function () {
                 return false;
             }
         },
@@ -81,25 +80,25 @@ Vue.component('vue-select', {
         size: {
             type: Number,
             required: false,
-            default: function() {
+            default: function () {
                 return 8;
             }
         }
     },
-    beforeCompile: function() {
+    beforeCompile: function () {
         this.isChanging = false;
         this.control = null;
         this.isModelChanging = false;
     },
     watch: {
-        "options": function(val, oldVal) {
+        "options": function (val, oldVal) {
             this.control.trigger('change');
             if (this.transfer) {
                 this.control.bootstrapDualListbox('refresh');
             }
         },
-        "model": function(val, oldVal) {
-            if (! this.isChanging) {
+        "model": function (val, oldVal) {
+            if (!this.isChanging) {
                 this.isChanging = true;
                 this.control.val(val).trigger("change");
                 this.isChanging = false;
@@ -113,6 +112,7 @@ Vue.component('vue-select', {
     ready: function () {
         var defaultOptions = {};
         if (this.transfer) {
+            debugger;
             //TODO duallistbox 的默认参数,待确认.
         } else {
             defaultOptions = {
@@ -121,9 +121,9 @@ Vue.component('vue-select', {
                 allowClear: true
             };
         }
-
         $.extend(defaultOptions, this.configs);
         this.control = $(this.$el);
+
 
         if (this.transfer) {
             this.control.bootstrapDualListbox(defaultOptions);
@@ -132,7 +132,7 @@ Vue.component('vue-select', {
         }
 
         var me = this;
-        this.control.on("change", function(e) {
+        this.control.on("change", function (e) {
             if (!me.isChanging || me.isModelChanging) {
                 me.isChanging = true;
                 me.model = me.control.val();

@@ -1,88 +1,110 @@
-<div class="page-sidebar-wrapper">
-	<div class="page-sidebar navbar-collapse collapse">
-		<ul class="page-sidebar-menu page-sidebar-menu-closed" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-			<li class="start active open">
-				<a href="javascript:;">
-					<i class="icon-diamond"></i>
-					<span class="title">规则管理</span>
-					<span class="selected"></span>
-					<span class="arrow open"></span>
-				</a>
-				<ul class="sub-menu">
-					<li class="active">
-						<a href="index.html"><i class="fa fa-superscript"></i>条件开发</a>
-					</li>
-					<li>
-						<a href="ecommerce_index.html"><i class="fa fa-subscript"></i>比较符开发</a>
-					</li>
-					<li>
-						<a href="ecommerce_index.html"><i class="fa fa-database"></i>数据源开发</a>
-					</li>
-					<li>
-						<a href="ecommerce_index.html"><i class="fa fa-gavel"></i>规则策略</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="javascript:;">
-					<i class="icon-drawer"></i>
-					<span class="title">动作管理</span>
-					<span class="arrow "></span>
-				</a>
-				<ul class="sub-menu">
-					<li>
-						<a href="ecommerce_index.html"><i class="fa fa-database"></i>属性数据源</a>
-					</li>
-					<li>
-						<a href="ecommerce_index.html"><i class="fa fa-flash"></i>本地动作</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="javascript:;">
-				<i class="icon-rocket"></i>
-				<span class="title">决策管理</span>
-				<span class="arrow "></span>
-				</a>
-				<ul class="sub-menu">
-					<li>
-						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-cube"></i>策略节点</a>
-					</li>
-					<li>
-						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-life-bouy"></i>策略配置</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="javascript:;">
-				<i class="icon-settings"></i>
-				<span class="title">基础管理</span>
-				<span class="arrow "></span>
-				</a>
-				<ul class="sub-menu">
-					<li>
-						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-laptop"></i>应用配置</a>
-					</li>
-					<li>
-						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-th-large"></i>场景配置</a>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<a href="javascript:;">
-				<i class="icon-speedometer"></i>
-				<span class="title">统计监控</span>
-				<span class="arrow "></span>
-				</a>
-				<ul class="sub-menu">
-					<li>
-						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-codepen"></i>规则运行统计</a>
-					</li>
-					<li>
-						<a href="layout_horizontal_sidebar_menu.html"><i class="fa fa-bar-chart-o"></i>策略运行统计</a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+<style>
+    .page-sidebar-menu::-webkit-scrollbar {
+        display: none
+    }
+
+    .sidebar-defined {
+        max-height: 90%;
+        overflow-y: scroll;
+    }
+
+    .sidebar-defined-li {
+        max-height: 200px;
+        overflow-y: scroll;
+    }
+</style>
+<div class="page-sidebar-wrapper" id="leftHead">
+    <div class="page-sidebar navbar-collapse collapse">
+        <ul id="ulMenu" class="page-sidebar-menu page-sidebar-menu-closed sidebar-defined" data-keep-expanded="false"
+            data-auto-scroll="true" data-slide-speed="200" style="width:270px; position: fixed; z-index: 2000;">
+            <input class="form-control" id="menuName" name="menuName" v-model="menuName" placeholder="请输入..."></input>
+            <li>
+                <a href="javascript:;"><i class="icon-energy"></i><span class="title">系统管理</span><span class="arrow "></span></a>
+                <ul class="sub-menu ul-sec">
+                    <li><a href="#" target="_blank"><i class="fa fa-cab"></i>菜单一</a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-cab"></i>菜单二</a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-cab"></i>菜单三</a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-cab"></i>菜单四</a></li>
+                    <li><a href="#" target="_blank"><i class="fa fa-cab"></i>菜单五</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="icon-diamond"></i><span class="title">销售管理</span><span class="arrow open"></span></a>
+                <ul class="sub-menu ul-sec">
+                    <li>
+                        <a href="javascript:;"><i class="icon-diamond"></i><span class="title">产品管理</span><span class="arrow"></span></a>
+                        <ul class="sub-menu ul-third">
+                            <li><a href="#"><i class="fa fa-list"></i>菜单一</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单二</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单三</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单四</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="icon-drawer"></i><span class="title">商品管理</span><span class="arrow"></span></a>
+                        <ul class="sub-menu ul-third">
+                            <li><a href="#"><i class="fa fa-list"></i>菜单一</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单二</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单三</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单四</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="icon-notebook"></i><span class="title">规则管理</span><span class="arrow"></span></a>
+                        <ul class="sub-menu ul-third">
+                            <li><a href="#"><i class="fa fa-list"></i>菜单一</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单二</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单三</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单四</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="icon-reddit"></i><span class="title">渠道管理</span><span class="arrow"></span></a>
+                        <ul class="sub-menu ul-third">
+                            <li><a href="#"><i class="fa fa-list"></i>菜单一</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单二</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单三</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单四</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;"><i class="icon-plane"></i><span class="title">交易管理</span><span class="arrow "></span></a>
+                <ul class="sub-menu ul-sec">
+                    <li>
+                        <a href="javascript:;"><i class="icon-trophy"></i><span class="title">订单管理</span><span class="arrow"></span></a>
+                        <ul class="sub-menu ul-third">
+                            <li><a href="#"><i class="fa fa-list"></i>菜单一</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单二</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单三</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单四</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><i class="icon-crop"></i><span class="title">工单管理</span><span class="arrow"></span></a>
+                        <ul class="sub-menu ul-third">
+                            <li><a href="#"><i class="fa fa-list"></i>菜单一</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单二</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单三</a></li>
+                            <li><a href="#"><i class="fa fa-list"></i>菜单四</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 </div>
+<div class="modal fade" id="publishModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document" style="width:800px">
+        <div class="modal-content"></div>
+    </div>
+</div>
+<div id="logModal" class="modal fade modal-scroll" tabindex="-1" data-replace="true">
+    <div class="modal-dialog" role="document" style="width:1200px">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+<script src="${rc.contextPath}/js/widget/sidebar-menu.js"></script>

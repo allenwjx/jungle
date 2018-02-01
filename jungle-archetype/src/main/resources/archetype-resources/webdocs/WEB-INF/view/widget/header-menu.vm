@@ -1,35 +1,47 @@
 <div class="page-header navbar navbar-fixed-top">
-	<div class="page-header-inner">
-		<div class="page-logo">
-			<a href="index.html">
-				<img src="${rc.contextPath}/img/logo.png" alt="logo" class="logo-default"/>
-			</a>
-			<div class="menu-toggler sidebar-toggler">
-			</div>
-		</div>
+    <div class="page-header-inner">
+        <div class="page-logo">
+            <a>
+                <!--
+                放上你的Logo
+                <img src="${rc.contextPath}/img/logo.jpg" alt="logo" style="margin-top:5px;width:120px;" class="logo-default"/>
+                -->
+            </a>
+            <div class="menu-toggler sidebar-toggler">
+            </div>
+        </div>
 
-		<div class="top-menu">
-			<ul class="nav navbar-nav pull-right">
-				<li class="dropdown dropdown-user">
-					<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-						<img alt="" class="img-circle" src="./img/avatar3_small.jpg"/>
-						<span class="username username-hide-on-mobile">Nick </span>
-						<i class="fa fa-angle-down"></i>
-					</a>
-					<ul class="dropdown-menu dropdown-menu-default">
-						<li>
-							<a href="inbox.html">
-								<i class="icon-envelope-open"></i> My Inbox <span class="badge badge-danger">3</span>
-							</a>
-						</li>
-					</ul>
-				</li>
-				<li class="dropdown dropdown-quick-sidebar-toggler">
-					<a href="javascript:;" class="dropdown-toggle">
-						<i class="icon-logout"></i>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+        <div class="top-menu pull-left">
+            <ul class="nav navbar-nav">
+                <li><a href="${rc.contextPath}/index">Jungle框架WEB模板后台</a></li>
+            </ul>
+        </div>
+
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+                <li>
+                    <a target="_blank" href="https://v.qq.com/"
+                       data-hover="dropdown">
+                        <span>QQ视频</span>
+                    </a>
+                </li>
+                <li>
+                    <a target="_blank" href="www.baidu.com"
+                       data-hover="dropdown">
+                        <span>百度</span>
+                    </a>
+                </li>
+                <li class="dropdown dropdown-user">
+                    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                        <span class="username username-hide-on-mobile">Mr.Jungle</span>
+                    </a>
+                </li>
+                <li class="dropdown dropdown-quick-sidebar-toggler">
+                    <a href="${rc.contextPath}/j_spring_cas_security_logout" class="dropdown-toggle">
+                        <i class="icon-logout"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

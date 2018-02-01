@@ -79,7 +79,7 @@ Page Header
 .page-header.navbar .page-logo {
   float: left;
   display: block;
-  width: 235px;
+  width: 279px;
   height: 46px;
   padding-left: 20px;
   padding-right: 20px;
@@ -1242,7 +1242,7 @@ Page sidebar
 @media (min-width: 992px) {
   /* 992px */
   .page-sidebar {
-    width: 235px;
+    width: 270px;
     float: left;
     position: relative;
     margin-right: -100%;
@@ -2221,7 +2221,7 @@ Page content
     width: 100%;
   }
   .page-content-wrapper .page-content {
-    margin-left: 235px;
+    margin-left: 270px;
     margin-top: 0px;
     min-height: 600px;
     padding: 2px 2px 2px 2px;

@@ -1,0 +1,46 @@
+/******
+    开发环境打标签
+    ********/
+.development {
+    position: fixed;
+    width: 149px;
+    height: 149px;
+    top: 45px;
+    right: 0;
+    border: 0;
+    z-index: 99999999;
+    background-image: url("../img/development_ribbon.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+     /*transform:rotate(90deg);*/
+}
+
+.predeploy {
+    position: fixed;
+    width: 149px;
+    height: 149px;
+    top: 45px;
+    right: 0;
+    border: 0;
+    z-index: 99999999;
+    background-image: url("../img/predeploy_ribbon.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    /*transform:rotate(90deg);*/
+}
+
+.time-list ul li {
+    padding-left: 25px;
+    font-size: 14px;
+    color: rgb(153,153,153);
+    line-height: 30px;
+    background: url("../img/remark.png") no-repeat no-repeat 0 5px;;
+}
+
+.remark {
+    background-color: #0099cc;
+    color: white;
+    border-radius: 5px;
+    padding: 1px;
+    margin-left: 2px;
+}

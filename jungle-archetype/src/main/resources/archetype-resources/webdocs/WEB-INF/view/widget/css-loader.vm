@@ -5,17 +5,49 @@
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-toastr/toastr.min.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/bootstrap-validator/bootstrapValidator.min.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/uniform/css/uniform.default.css">
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/select2/select2.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/select2/css/select2-bootstrap.min.css"></link>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/icheck/skins/minimal/orange.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/pace/themes/pace-theme-flash.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/jquery-ui/jquery-ui.min.css"/>
 <link rel="stylesheet" href="${rc.contextPath}/css/sweetalert.css">
-<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/error.css" />
+<link rel="stylesheet" href="${rc.contextPath}/css/alertify-bootstrap-3.css">
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/table/bootstrap-table.css">
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/calendar.min.css">
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/error.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/fileinput/fileinput.min.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/js/plugins/duallistbox/bootstrap-duallistbox.min.css"></link>
 
 <!-- custom style -->
-<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/components.css"/>
+<link rel="stylesheet" href="${rc.contextPath}/css/components-rounded.css" id="style_components">
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/plugins.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/layout.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/themes/light.css"/>
 <link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/custom.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/default.css"/>
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/fullcalendar.min.css">
+<style>
+    .portlet.light {
+        padding: 2px 20px 2px 10px;
+    }
+
+    .portlet {
+        margin-bottom: 2px;
+    }
+
+    .orange {
+        color: orange;
+    }
+
+    .green {
+        color: green;
+    }
+
+    table.table-fixed-head .table-fixed-head-thead {
+        border-bottom: 1px solid #dddddd;
+        border-top: 1px solid #dddddd;
+        background: #fff;
+    }
+</style>

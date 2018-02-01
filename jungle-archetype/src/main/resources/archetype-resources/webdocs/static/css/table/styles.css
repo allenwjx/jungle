@@ -1,0 +1,122 @@
+body {
+    margin: 25px 25px 0 25px;
+}
+
+.jumbotron {
+    margin: 60px 0;
+    text-align: center;
+}
+
+.lead code {
+    font-size: inherit;
+}
+
+thead {
+    background-color: #f7f7f7;
+}
+
+thead .text-center {
+    text-align: center;
+}
+
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+}
+
+/**
+ * The styles below give you an idea how to apply jquery.decapitate to your site.
+ */
+
+/* Apply a little shadow to make the table header pop out of the page */
+.decap-head-wrapper .decap-head {
+    -webkit-box-shadow: 0 3px 12px #999;
+       -moz-box-shadow: 0 3px 12px #999;
+            box-shadow: 0 3px 12px #999;
+}
+
+/**
+ * .affix is applied when the table header is fixed to the top of the viewport.
+ *
+ * Define table header margin and width. This is tricky.
+ */
+
+/* First, emulate body margin by pinning the container in from the edges a bit */
+.decap-head-wrapper.affix {
+    left: 25px;   /* Should match body margin */
+    right: 25px;  /* Should match body margin */
+}
+
+@media (max-width: 767px) {
+    .decap-head-wrapper.affix {
+        left: 45px;   /* Should match body margin+padding */
+        right: 45px;  /* Should match body margin+padding */
+    }
+}
+
+/* This table is 100% wide, so we just let it fill the container; thus, no styles needed */
+#element-table-wrapper .decap-head-wrapper.affix .decap-head {}
+
+/* This table is NOT 100% wide; rather, it occupies part of a fluid grid. Use percentages to lay it out */
+#state-table-wrapper .decap-head-wrapper.affix .decap-head {
+    margin-left: 8.547008547008547%;
+    width: 23.076923076923077%;
+}
+
+/* Ditto */
+#tld-table-wrapper .decap-head-wrapper.affix .decap-head {
+    margin-left: 42.73504273504274%;
+    width: 48.717948717948715%;
+}
+
+@media (max-width: 767px) {
+    #state-table-wrapper .decap-head-wrapper.affix .decap-head,
+    #tld-table-wrapper .decap-head-wrapper.affix .decap-head {
+        margin: inherit;
+        width: 100%;
+    }
+}
+
+/**
+ * .affix-bottom is applied when the table header is scrolling out of the viewport along with the last table row.
+ *
+ * Define table header position relative to bottom of the table (should equal table row height).
+ */
+#element-table-wrapper .decap-head-wrapper.affix-bottom {
+    bottom: 38px;
+}
+
+#state-table-wrapper .decap-head-wrapper.affix-bottom {
+    bottom: 38px;
+}
+
+#tld-table-wrapper .decap-head-wrapper.affix-bottom {
+    bottom: 29px;
+}
+
+/**
+ * Make jquery-decapitate play nicely with Boostrap .table-bordered tables.
+ */
+.table-bordered.decap-head {
+    margin: 0;
+    border-top: none;
+
+    -webkit-border-radius: 0;
+            border-radius: 0;
+       -moz-border-radius: 0;
+}
+
+.table-bordered.decap-head thead:first-child tr:first-child > th {
+    border-top: none;
+
+    -webkit-border-radius: 0;
+            border-radius: 0;
+       -moz-border-radius: 0;
+}
+
+.table-bordered.decap-head thead:last-child tr:last-child > th {
+    -webkit-border-radius: 0;
+            border-radius: 0;
+       -moz-border-radius: 0;
+}

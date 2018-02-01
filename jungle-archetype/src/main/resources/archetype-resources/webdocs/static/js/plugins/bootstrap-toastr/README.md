@@ -59,7 +59,7 @@ For other API calls, see the [demo](http://codeseven.github.io/toastr/demo.html)
 	// Display a warning toast, with no title
 	toastr.warning('My name is Inigo Montoya. You killed my father, prepare to die!')
 	
-	// Display a success toast, with a title
+	// Display a detailSuccess toast, with a title
 	toastr.success('Have fun storming the castle!', 'Miracle Max Says')
 	
 	// Display an error toast, with a title
