@@ -57,7 +57,7 @@
             <ref bean="transactionManager"/>
         </property>
     </bean>
-    <bean id="sampleSqlMapClientDAO" abstract="true">
+    <bean id="${rootArtifactId}SqlMapClientDAO" abstract="true">
         <property name="dataSource">
             <ref bean="datasourceProxy"/>
         </property>
