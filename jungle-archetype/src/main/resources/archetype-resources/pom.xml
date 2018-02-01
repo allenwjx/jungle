@@ -23,6 +23,7 @@
         <ibatis.version>2.3.4.726</ibatis.version>
         <mysql.version>5.1.45</mysql.version>
         <mariadb.version>2.2.1</mariadb.version>
+        <druid.version>1.1.6</druid.version>
         <slf4j.version>1.6.2</slf4j.version>
         <log4j.version>1.2.16</log4j.version>
         <junit.version>4.10</junit.version>
@@ -231,6 +232,11 @@
                 <groupId>org.mariadb.jdbc</groupId>
                 <artifactId>mariadb-java-client</artifactId>
                 <version>${mariadb.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.validation</groupId>

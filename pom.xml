@@ -44,6 +44,7 @@
         <hessian.lite.version>3.2.1-fixed-2</hessian.lite.version>
         <guava.version>19.0</guava.version>
         <commons.lang3.version>3.4</commons.lang3.version>
+        <comm.lang.version>2.6</comm.lang.version>
         <comm.beanutil.version>1.9.2</comm.beanutil.version>
         <comm.collection.version>3.2.2</comm.collection.version>
         <comm.io.version>2.4</comm.io.version>
@@ -310,6 +311,11 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons.lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${comm.lang.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-beanutils</groupId>

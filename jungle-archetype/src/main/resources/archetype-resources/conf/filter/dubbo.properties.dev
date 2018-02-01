@@ -7,6 +7,26 @@ app.root=${user.home}/${app.name}
 jungle-env=dev
 
 #database
+db.name=sample
+db.url=jdbc:mysql://localhost:3306/allen
+db.driverClassName=com.mysql.jdbc.Driver
+db.username=root
+db.password=root
+db.initialSize=1
+db.maxActive=32
+db.minIdle=8
+db.poolPreparedStatements=true
+db.maxOpenPreparedStatements=100
+db.validationQuery=SELECT 1
+db.testOnBorrow=false
+db.testOnReturn=false
+db.testWhileIdle=true
+db.timeBetweenEvictionRunsMillis=120000
+db.minEvictableIdleTimeMillis=300000
+db.filters=stat
+db.removeAbandoned=true
+db.removeAbandonedTimeout=1800
+db.logAbandoned=true
 
 #RocketMQ配置，项目没有mq，可以删除
 mq.namesrv.addr=10.100.159.200:9876;10.100.157.34:9876
