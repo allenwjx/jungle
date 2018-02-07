@@ -27,7 +27,7 @@ public class PageUtils {
      * @return
      */
     public static <T> PageList<T> createEmptyPageList(PageQuery query) {
-        return new PageList<T>(new ArrayList<T>(0), new Paginator(0, query.getPageSize(), query.getPage()));
+        return new PageList<T>(new ArrayList<>(0), new Paginator(0, query.getPageSize(), query.getPage()));
     }
 
     /**
@@ -38,7 +38,7 @@ public class PageUtils {
      * @return
      */
     public static <T> PageList<T> createEmptyPageList(int page, int pageSize) {
-        return new PageList<T>(new ArrayList<T>(0), new Paginator(0, pageSize, page));
+        return new PageList<T>(new ArrayList<>(0), new Paginator(0, pageSize, page));
     }
 
     /**
@@ -51,7 +51,7 @@ public class PageUtils {
      */
     public static <T> PageList<T> createPageList(Collection<T> data, PageQuery query, int totalCnt) {
         Paginator paginator = new Paginator(totalCnt, query.getPageSize(), query.getPage());
-        return new PageList<T>(data, paginator);
+        return new PageList<>(data, paginator);
     }
 
     /**
@@ -65,7 +65,18 @@ public class PageUtils {
      */
     public static <T> PageList<T> createPageList(Collection<T> data, int page, int pageSize, int totalCnt) {
         Paginator paginator = new Paginator(totalCnt, pageSize, page);
-        return new PageList<T>(data, paginator);
+        return new PageList<>(data, paginator);
+    }
+
+    /**
+     * 查询分页查询结果集
+     *
+     * @param data 获取的数据
+     * @param paginator 分页器
+     * @return
+     */
+    public static <T> PageList<T> createPageList(Collection<T> data, Paginator paginator) {
+        return new PageList<>(data, paginator);
     }
 
     // ~ facade base model to page
@@ -79,7 +90,7 @@ public class PageUtils {
     public static <T> PageList<T> createPageList(PageResult<T> pageResult) {
         PageInfo pageInfo = pageResult.getPageInfo();
         Paginator paginator = new Paginator(pageInfo.getItems(), pageInfo.getItemsPerPage(), pageInfo.getPage());
-        return new PageList<T>(pageResult.getValues(), paginator);
+        return new PageList<>(pageResult.getValues(), paginator);
     }
 
     /**
@@ -94,7 +105,7 @@ public class PageUtils {
         pageInfo.setItemsPerPage(pageList.getPaginator().getPageSize());
         pageInfo.setPage(pageList.getPaginator().getCurrentPage());
 
-        PageResult<T> pageResult = new PageResult<T>(pageList.getData());
+        PageResult<T> pageResult = new PageResult<>(pageList.getData());
         pageResult.setPageInfo(pageInfo);
         return pageResult;
     }
@@ -107,6 +118,6 @@ public class PageUtils {
      * @return
      */
     public static <T> PageResult<T> createPageResult(Collection<T> data, Paginator paginator) {
-        return new PageResult<T>(data, paginator.getCurrentPage(), paginator.getPageSize(), paginator.getTotalCount());
+        return new PageResult<>(data, paginator.getCurrentPage(), paginator.getPageSize(), paginator.getTotalCount());
     }
 }
