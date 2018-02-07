@@ -3,7 +3,6 @@ package com.zeh.jungle.web.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,7 +12,7 @@ import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
 import com.zeh.jungle.core.exception.JGException;
 import com.zeh.jungle.core.exception.JGRuntimeException;
 import com.zeh.jungle.utils.common.ThrowableAnalyzer;
-import com.zeh.jungle.web.basic.WebResult;
+import com.zeh.jungle.utils.page.SingleResult;
 
 /**
  * @author hzy24985
@@ -37,16 +36,11 @@ public class AjaxExceptionHandler extends SimpleMappingExceptionResolver {
     @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         if ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) {
-            WebResult returnValue = createErrorMessage(ex);
-            returnValue.setResult(false);
-            if (StringUtils.isBlank(returnValue.getErrorCode())) {
-                returnValue.setErrorCode("");
-            }
-
+            SingleResult returnValue = createErrorMessage(ex);
             ModelAndView mav = new ModelAndView();
             mav.setView(new MappingJacksonJsonView());
-            mav.addObject("message", returnValue.getMessage());
-            mav.addObject("result", returnValue.isResult());
+            mav.addObject("errorMessage", returnValue.getErrorMessage());
+            mav.addObject("success", returnValue.isSuccess());
             mav.addObject("errorCode", returnValue.getErrorCode());
             return mav;
         } else {
@@ -61,7 +55,7 @@ public class AjaxExceptionHandler extends SimpleMappingExceptionResolver {
      * @param e
      * @return
      */
-    private WebResult createErrorMessage(Exception e) {
+    private SingleResult createErrorMessage(Exception e) {
         String errorCode;
         String errorMsg;
         Throwable[] causeChain = throwableAnalyzer.determineCauseChain(e);
@@ -77,10 +71,7 @@ public class AjaxExceptionHandler extends SimpleMappingExceptionResolver {
             errorCode = "-1";
             errorMsg = e.getMessage();
         }
-        WebResult msg = new WebResult();
-        msg.setErrorCode(errorCode);
-        msg.setMessage(errorMsg);
-        msg.setResult(false);
+        SingleResult msg = new SingleResult(null, errorCode, errorMsg);
         return msg;
 
     }
