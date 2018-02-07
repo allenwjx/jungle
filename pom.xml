@@ -52,6 +52,7 @@
         <httpclient.version>4.5.1</httpclient.version>
         <dozer.version>5.5.1</dozer.version>
         <joda.version>[2.9,)</joda.version>
+        <jackson.version>1.9.13</jackson.version>
         <mysql.version>5.1.38</mysql.version>
         <slf4j.version>1.6.2</slf4j.version>
         <log4j.version>1.2.16</log4j.version>
@@ -351,6 +352,16 @@
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
