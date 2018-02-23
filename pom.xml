@@ -27,7 +27,6 @@
         <rocketmq.version>4.2.0</rocketmq.version>
         <dubbo.version>2.6.0</dubbo.version>
         <spring.version>3.2.9.RELEASE</spring.version>
-        <spring.security.version>3.2.9.RELEASE</spring.security.version>
         <spring.data.version>1.12.1.RELEASE</spring.data.version>
         <javax.annotation.version>1.2</javax.annotation.version>
         <kryo.version>2.24.0</kryo.version>
@@ -205,32 +204,6 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-core</artifactId>
-                <version>${spring.security.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-web</artifactId>
-                <version>${spring.security.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-config</artifactId>
-                <version>${spring.security.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-cas</artifactId>
-                <version>${spring.security.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>commons-logging</groupId>
-                        <artifactId>commons-logging</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.springframework.data</groupId>
